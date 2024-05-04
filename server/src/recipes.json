@@ -1,0 +1,159 @@
+[
+    {
+        "name": "Copycat-Berry-Chantilly-Cake",
+        "image": "cake.jpg",
+        "serving": "8 to 10",
+        "ingredients": {
+            "ingredient1": {
+                "name": "all-purpose flour",
+                "measurement": "2 cups"
+            },
+            "ingredient2": {
+                "name": "granulated sugar",
+                "measurement": "1 1/4 cups"
+            },
+            "ingredient3": {
+                "name": "baking powder",
+                "measurement": "1 teaspoon"
+            },
+            "ingredient4": {
+                "name": "kosher salt",
+                "measurement": "1 teaspoon"
+            },
+            "ingredient5": {
+                "name": "baking soda",
+                "measurement": "1/2 teaspoon"
+            },
+            "ingredient6": {
+                "name": "unsalted butter at room temperature",
+                "measurement": "8 tablespoons"
+            },
+            "ingredient7": {
+                "name": "whole milk",
+                "measurement": "1 cup"
+            },
+            "ingredient8": {
+                "name": "vanilla extract",
+                "measurement": "1 tablespoon"
+            },
+            "ingredient9": {
+                "name": "large eggs, separated",
+                "measurement": "2"
+            }
+        },
+        "instructions": {
+            "step1": "For the cake: Preheat the oven to 350 degrees F. Spray three 8-inch round cake pans with cooking spray and line the bottoms with parchment paper.",
+            "step2": "Combine the flour, sugar, baking powder, salt and baking soda in the bowl of a stand mixer fitted with the paddle attachment and beat on low just to combine. With the mixer running, add the butter 1 tablespoon at a time, making sure it’s well combined before adding the next tablespoon. Once all the butter has been incorporated it should look like wet sand. Turn the mixer off.",
+            "step3": "Whisk the milk, vanilla and egg yolks in a medium bowl. Add the whites to a separate clean medium bowl and whisk until stiff peaks form, 2 to 3 minutes. Turn the mixer back to low and slowly add the milk mixture until just combined. Turn the machine off and fold in the whipped egg whites by hand until just combined.",
+            "step4": "Divide the batter between the three prepared pans. Tap the pans gently on the counter to even out the batter. Bake until the batter pulls away from the sides and a toothpick inserted into the center of the cakes comes out clean, about 25 minutes. Let cool in the pans for 15 minutes, then flip the cakes out onto a cooling rack. Remove the parchment paper from the bottoms and flip the cakes back over. Let cool completely on the rack, about 1 hour."
+        }
+    },
+    {
+        "name": "Penne-with-Asparagus-and-Cherry-Tomatoes-(Spring)",
+        "image": "penne.jpg",
+        "serving": "4 to 6",
+        "ingredients": {
+            "ingredient1": {
+                "name": "penne pasta",
+                "measurement": "8 ounces"
+            },
+            "ingredient2": {
+                "name": "olive oil",
+                "measurement": "3 tablespoons"
+            },
+            "ingredient3": {
+                "name": "garlic, minced",
+                "measurement": "2 cloves"
+            },
+            "ingredient4": {
+                "name": "thin asparagus, trimmed and cut into 1-inch pieces",
+                "measurement": "1 1/2 pounds"
+            },
+            "ingredient5": {
+                "name": "salt and ground black pepper",
+                "measurement": "to taste"
+            },
+            "ingredient6": {
+                "name": "cherry tomatoes",
+                "measurement": "2 cups"
+            },
+            "ingredient7": {
+                "name": "shelled fresh peas",
+                "measurement": "1 cup"
+            },
+            "ingredient8": {
+                "name": "low-sodium chicken stock",
+                "measurement": "1/2 cup"
+            },
+            "ingredient9": {
+                "name": "grated Parmesan",
+                "measurement": "1 cup"
+            },
+            "ingredient10": {
+                "name": "chopped fresh basil leaves",
+                "measurement": "2 tablespoons"
+            }
+        },
+        "instructions": {
+            "step1": "Bring a large pot of salted water to a boil over high heat. Add the pasta and cook until tender but still firm to the bite, stirring occasionally, about 8 to 10 minutes. Drain the pasta, reserving about 1/2 cup of the pasta water.",
+            "step2": "In a large saute pan, heat the oil over medium-high heat. Add the garlic and cook until fragrant, about 1 minute. Add the asparagus, season with the salt and pepper, and cook for 3 minutes until slightly soft. Add the cherry tomatoes and peas. Cook for 2 minutes. Pour the chicken stock into the pan and bring the mixture to a simmer. Cook until the tomatoes start to burst and the stock is reduced by half, about 3 minutes.",
+            "step3": "Transfer the asparagus mixture to a large serving bowl. Add the cooked pasta and 1/2 of the Parmesan. Toss well, adding reserved pasta water, if needed, to loosen the pasta. Garnish with the remaining Parmesan and chopped basil."
+        }
+    },
+    {
+        "name": "Simple-Perfect-Chili",
+        "image": "chili.jpg",
+        "serving": "6 to 8",
+        "ingredients": {
+            "ingredient1": {
+                "name": "ground beef",
+                "measurement": "2 pounds"
+            },
+            "ingredient2": {
+                "name": "garlic, chopped",
+                "measurement": "2 cloves"
+            },
+            "ingredient3": {
+                "name": "tomato sauce",
+                "measurement": "8 ounces"
+            },
+            "ingredient4": {
+                "name": "chili powder",
+                "measurement": "2 tablespoons"
+            },
+            "ingredient5": {
+                "name": "ground cumin",
+                "measurement": "1 teaspoon"
+            },
+            "ingredient6": {
+                "name": "ground oregano",
+                "measurement": "1 teaspoon"
+            },
+            "ingredient7": {
+                "name": "salt",
+                "measurement": "1 teaspoon"
+            },
+            "ingredient8": {
+                "name": "cayenne pepper",
+                "measurement": "1/4 teaspoon"
+            },
+            "ingredient9": {
+                "name": "masa harina",
+                "measurement": "1/4 cup"
+            },
+            "ingredient10": {
+                "name": "kidney beans, drained and rinsed",
+                "measurement": "15 ounces"
+            },
+            "ingredient11": {
+                "name": "pinto beans, drained and rinsed",
+                "measurement": "15 ounces"
+            }
+        },
+        "instructions": {
+            "step1": "Place the ground beef in a large pot and throw in the garlic. Cook over medium heat until browned. Drain off the excess fat, and then pour in the tomato sauce, chili powder, cumin, oregano, salt and cayenne. Stir together well, cover, and then reduce the heat to low. Simmer for 1 hour, stirring occasionally. If the mixture becomes overly dry, add 1/2 cup water at a time as needed.",
+            "step2": "After an hour, place the masa harina in a small bowl. Add 1/2 cup water and stir together with a fork. Dump the masa mixture into the chili. Stir together well, and then taste and adjust the seasonings. Add more masa paste and/or water to get the chili to your preferred consistency, or to add more corn flavor. Add the beans and simmer for 10 minutes. Optional to serve with shredded Cheddar, chopped onions, tortilla chips and lime wedges."}
+    }
+
+]
+

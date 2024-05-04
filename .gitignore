@@ -9,6 +9,7 @@
 # Node
 /node_modules
 /webui/node_modules
+/server/node_modules
 npm-debug.log
 yarn-error.log
 
@@ -38,12 +39,19 @@ yarn-error.log
 testem.log
 /typings
 /webui/.angular/cache
-/webui.sass-cache/
+/webui/.sass-cache/
 /webui/connect.lock
 /webui/coverage
 /webui/libpeerconnection.log
-/webuitestem.log
+/webui/testem.log
 /webui/typings
+/server/.angular/cache
+/server.sass-cache/
+/server/connect.lock
+/server/coverage
+/server/libpeerconnection.log
+/server/testem.log
+/server/typings
 
 # System files
 .DS_Store
