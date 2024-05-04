@@ -1,0 +1,31 @@
+#topbar {
+   background-color: white;
+   text-align: center;
+}
+
+#topbar h3 {
+   display: inline-block;
+   margin-right: 700px;
+   font-size: 30px;
+}
+
+#topbar ul {
+   display: inline-block;
+   padding: 0px;
+}
+
+#topbar li {
+   list-style-type: none;
+   display: inline-block;
+   padding: 0px 20px;
+   font-weight: 600;
+   font-size: 20px;
+}
+
+#topbar ul :last-child{
+   padding-right: 0px;
+}
+
+#topbar ul :hover {
+   color: lightslategray;
+}

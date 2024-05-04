@@ -1,0 +1,27 @@
+#recipesList {
+    text-align: center;
+}
+
+article {
+    display: inline-block;
+    font-size: 12px;
+    background-color: white;
+    margin: 50px 30px;
+    width: 450px;
+    height: 450px;
+}
+
+#recipesList :hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#recipesList img {
+    width: 450px;
+    height: 400px;
+    object-fit: cover; //to crop the pic using the central point
+}
+
+h3 {
+    font: 500 20px 'Times New Roman', Times, serif;
+}

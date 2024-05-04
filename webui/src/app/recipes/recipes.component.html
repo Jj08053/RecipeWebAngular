@@ -1,0 +1,7 @@
+<section id="recipesList">
+    <article *ngFor="let recipe of recipesList" [routerLink]="['/recipe', recipe.name]" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+        <img [src]="'assets/' + recipe.image"/>
+        <h3 [textContent]="recipe.name.replaceAll('-', ' ')"></h3>
+    </article>
+</section>
