@@ -12,6 +12,10 @@
 /server/node_modules
 npm-debug.log
 yarn-error.log
+/webui/npm-debug.log
+/server/yarn-error.log
+/webui/npm-debug.log
+/server/yarn-error.log
 
 # IDEs and editors
 .idea/
