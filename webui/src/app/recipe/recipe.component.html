@@ -1,4 +1,32 @@
-<div>
-    <img [src]="'assets/' + recipe?.image"/>
+<section class="top">
+    <img [src]="'assets/' + recipe?.image" />
     <h2 [textContent]="recipe?.name.replaceAll('-', ' ')"></h2>
-</div>
+    <p>Serving Size: {{recipe?.serving}}</p>
+</section>
+<section class="bottom">
+    <section class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+            <li *ngFor="let i of ingredients">
+                <input [id]="i.name" type="checkbox" [checked]="i.isChecked" (change)="i.isChecked = !i.isChecked">
+                <label for={{i.name}}>{{i.measurement}} {{i.name}}</label>
+            </li>
+        </ul>
+        <span class="serving">
+            <label for="size">Serving size:</label>
+            <input id="size" type="text" [(ngModel)]="serving" #servingField="ngModel" required/>
+        </span>
+        <span id="error" *ngIf="!servingField.valid && clicked">Serving size is required before adding.</span>
+        <input type="submit" value="Add to shopping list" (click)="getItemList()">
+    </section>
+    <section class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+            <li *ngFor="let i of recipe?.instructions; index as idx">
+                <div class="circle">{{idx+1}}</div>
+                <div class="instrucText">{{i}}</div>
+            </li>
+        </ol>
+    </section>
+</section>
+<!-- <hr /> -->

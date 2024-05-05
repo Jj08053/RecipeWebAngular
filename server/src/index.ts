@@ -18,6 +18,7 @@ app.use(cors(corsOptions));
 import { Recipe } from "./Recipe";
 
 let recipesList: Recipe[] = [];
+let itemInfo: [][]
 
 fs.readFile(filePath, (err, data) =>{ //data = content of the file; has content if there is no error
     if (err){
@@ -41,14 +42,6 @@ app.get("/recipes", (req, resp)=>{
     return resp.json(recipesList);
 })
 
-//NEED TO COMPLETE
-app.get("/cart", (req, resp)=>{
-
-
-
-    return resp.json({"cart": "cart"});
-})
-
 app.get("/recipe/:name", (req, resp)=>{
     const recipe: Recipe | undefined = recipesList.find(recipe => recipe.name == req.params.name);
     if (recipe){
@@ -59,23 +52,37 @@ app.get("/recipe/:name", (req, resp)=>{
     return resp.json({error: `recipe with name: ${req.params.name} not found`});
 })
 
-// app.post("/", (req, resp) => {
-//     let newrecipe = req.body;
-//     if (recipesList.find(recipe => recipe.name == newrecipe.name)){
-//         resp.status(404);
-//         return resp.json({error: `recipe with name: ${newrecipe.name} already existed`});
-//     }
-//     let regex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
-//     if (!regex.test(newrecipe.phoneNumber) || recipesList.find(recipe => recipe.phoneNumber == newrecipe.phoneNumber)){
-//         resp.status(404);
-//         return resp.json({error: `Wrong phone format or duplicate phoneNumber: ${newrecipe.phoneNumber}`});
-//     }
-//     if (!newrecipe.id || !newrecipe.firstName || !newrecipe.lastName || !newrecipe.phoneNumber)
-//         return resp.status(404).send("Missing id, firstName, lastName or phoneNumber");
-//     recipesList.push((req.body));
-//     resp.status(200);
-//     return resp.json(req.body);
-// });
+//NEED TO COMPLETE
+// FYI itemInfo = {
+//     itemNameList: this.itemName,
+//     itemQtyList: this.itemQty,
+//     itemUnitList: this.itemUnit,
+//   };
+app.get("/cart", (req, resp)=>{
+    
+
+
+    return resp.json(itemInfo);
+})
+
+app.post("/", (req, resp) => {
+    itemInfo = req.body;
+
+    // if (recipesList.find(recipe => recipe.name == newrecipe.name)){
+    //     resp.status(404);
+    //     return resp.json({error: `recipe with name: ${newrecipe.name} already existed`});
+    // }
+    // let regex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
+    // if (!regex.test(newrecipe.phoneNumber) || recipesList.find(recipe => recipe.phoneNumber == newrecipe.phoneNumber)){
+    //     resp.status(404);
+    //     return resp.json({error: `Wrong phone format or duplicate phoneNumber: ${newrecipe.phoneNumber}`});
+    // }
+    // if (!newrecipe.id || !newrecipe.firstName || !newrecipe.lastName || !newrecipe.phoneNumber)
+    //     return resp.status(404).send("Missing id, firstName, lastName or phoneNumber");
+    // recipesList.push((req.body));
+    resp.status(200);
+    return resp.json(itemInfo);
+});
 
 // app.put('/', (req,resp)=>{
 //     for (let i = 0; i < recipesList.length;i++){
