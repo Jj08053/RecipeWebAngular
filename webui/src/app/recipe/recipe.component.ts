@@ -37,13 +37,13 @@ export class RecipeComponent {
 
     this.httpClient.get<Recipe>(this.url, options)
       .subscribe({
-        // next: (data) => {
-        //   this.recipe = data;
-        //   this.ingredients = this.recipe.ingredients;
-        // },
-        // error: (err) => {
-        //   console.error("Error occurred: " + err);
-        // }
+        next: (data) => {
+          this.recipe = data;
+          this.ingredients = this.recipe.ingredients;
+        },
+        error: (err) => {
+          console.error("Error occurred: " + err);
+        }
       });
   }
 
@@ -104,13 +104,13 @@ export class RecipeComponent {
 
     this.httpClient.post("http://localhost:3000", data, options)
       .subscribe({
-          next: (body) => {
-            console.log("Post successful");
-            console.log(body);
-          },
-          error: (err) => {
-            console.error("Error occured: " + JSON.stringify(err));
-          }
+          // next: (body) => {
+          //   console.log("Post successful");
+          //   console.log(body);
+          // },
+          // error: (err) => {
+          //   console.error("Error occured: " + JSON.stringify(err));
+          // }
       });
   }
 }
