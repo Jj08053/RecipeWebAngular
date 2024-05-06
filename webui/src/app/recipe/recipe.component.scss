@@ -37,7 +37,7 @@
         text-align: left;
         list-style-type: none;
     }
-    
+
     ul, ol{
         padding: 0px;
         margin: 0px;
@@ -56,13 +56,18 @@
         grid-template-columns: 1fr 4fr;
         align-items: center;
         border-bottom: 1px dashed black;
-        padding: 0.75rem 1rem 0.75rem 0rem;
+        padding: 0.75rem 2rem 0.75rem 0rem;
         text-align: left;
     }
 
     li:last-child{
         border-bottom: none;
         margin-bottom: 10px;
+    }
+
+    .allCheckBoxLi{
+        border-bottom: none;
+        font-weight: bold;
     }
 
     input[type="checkbox"] {
@@ -79,11 +84,12 @@
             border-bottom: 1px solid cornflowerblue;
             font: 1.25rem 'Times New Roman', Times, serif;
             width: 40px;
+            text-align: center;
             color: cornflowerblue;
         }
     }
 
-    #error{
+    .error{
         color: red;
         display: block;
         font-size: large;

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RecipeWeb';
+
+  onActive(event: Event) {
+    window.scrollTo(0, 0);
+  }
 }

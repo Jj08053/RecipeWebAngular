@@ -11,7 +11,6 @@ export class CartComponent {
   itemInfoList
 
   constructor(public httpClient: HttpClient) {
-    //this.contactId = route.snapshot.paramMap.get("id");
 
 
     const options = {
@@ -21,6 +20,7 @@ export class CartComponent {
       })
     };
 
+    //may need to change next function
     this.httpClient.get("http://localhost:3000/cart", options)
       .subscribe({
         next: (data) => {

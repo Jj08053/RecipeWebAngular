@@ -13,11 +13,10 @@ export class RecipeComponent {
   url: string
   recipe: Recipe
   ingredients: Ingredient[]
-  itemName: string[] = [];
-  itemQty: number[] = [];
-  itemUnit: string[] = [];
   serving: number
-  clicked: boolean = false;
+  clickedPost: boolean = false;
+  error: boolean = true;
+  allStatus: boolean = false;
 
   constructor(public route: ActivatedRoute, public httpClient: HttpClient) {
     //this.contactId = route.snapshot.paramMap.get("id");
@@ -47,46 +46,12 @@ export class RecipeComponent {
       });
   }
 
-  getItemList() {
-    this.clicked = true;
+  postItemList() {
+    this.clickedPost = true;
 
-    if (!this.serving){
+    let pattern =/^[0-9]+$|[0-9]+\.[0-9]+/;
+    if (!this.serving || !pattern.test(this.serving.toString())) {
       return;
-    }
-
-    for (let i of this.ingredients) {
-      if (i.isChecked === true) {
-        let words = i.measurement.split(" ");
-        let amount: number = 0
-        let regex = /[0-9]+|[0-9]\/[0-9]/;
-        for (let word of words){
-          if (regex.test(word)){
-            if (word.indexOf("/") > 0){
-              amount += (+word[0]/+word[2]);
-            }
-            else{
-              amount += +word;
-            }
-          }
-          else{
-            if (word.includes("(")){
-              this.itemUnit.push("as desired");
-              break;
-            }
-            this.itemUnit.push(word);
-          }
-        }
-        this.itemQty.push(amount * this.serving);
-
-        let name : string
-        let idx = i.name.indexOf(",");
-        if (idx > 0){
-          name = i.name.slice(0, idx);
-          this.itemName.push(name);
-        }
-        else
-          this.itemName.push(i.name);
-      }
     }
 
     const options = {
@@ -96,21 +61,81 @@ export class RecipeComponent {
       })
     };
 
-    const data = {
-      itemNameList: this.itemName,
-      itemQtyList: this.itemQty,
-      itemUnitList: this.itemUnit,
-    };
+    for (let i of this.ingredients) {
+      if (i.isChecked === true) {
+        let words = i.measurement.split(" ");
+        let amount: number = 0;
+        let unit: string = "";
+        let itemJSONstring = "";
+        let itemList: JSON[] = [];
+        let regex = /[0-9]+|[0-9]\/[0-9]/;
+        for (let word of words) {
+          if (regex.test(word)) {
+            if (word.indexOf("/") > 0) {
+              amount += (+word[0] / +word[2]);
+            }
+            else {
+              amount += +word;
+            }
+          }
+          else {
+            if (word.includes("(")) {
+              unit = "as desired";
+              break;
+            }
+            unit += word;
+          }
+        }
+        amount *= this.serving;
+        let name: string
+        let idx = i.name.indexOf(",");
+        if (idx > 0) {
+          name = i.name.slice(0, idx);
+        }
+        else{
+          name = i.name;
+        }
+        itemJSONstring = `{"name": "${name}", "qty": ${amount}, "unit": "${unit}"}`;
+        itemList = (JSON.parse(itemJSONstring));
 
-    this.httpClient.post("http://localhost:3000", data, options)
-      .subscribe({
-          // next: (body) => {
-          //   console.log("Post successful");
-          //   console.log(body);
-          // },
-          // error: (err) => {
-          //   console.error("Error occured: " + JSON.stringify(err));
-          // }
-      });
+        const data = {
+          itemList: itemList
+        };
+
+        this.httpClient.post("http://localhost:3000/cart", data, options)
+          .subscribe({
+            // next: (body) => {
+            //   console.log("Post successful");
+            //   console.log(body);
+            // },
+            // error: (err) => {
+            //   console.error("Error occured: " + JSON.stringify(err));
+            // }
+          });
+      }
+    }
+  }
+
+  allChange(){
+    this.allStatus = !this.allStatus;
+    for (let i of this.ingredients){
+      i.isChecked = this.allStatus;
+    }
+  }
+
+  eachChange(ingredient: Ingredient){
+    ingredient.isChecked = !ingredient.isChecked;
+    if (this.allStatus = true)
+      this.allStatus = false;
+
+    let counter = 0;
+    for (let i of this.ingredients){
+      if (true == i.isChecked){
+        counter++;
+      }
+    }
+    if (counter === this.ingredients.length){
+      this.allStatus = true;
+    }
   }
 }

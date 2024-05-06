@@ -7,18 +7,32 @@
     <section class="ingredients">
         <h3>Ingredients</h3>
         <ul>
+            <li class="allCheckBoxLi">
+                <input id="allCheckBox" type="checkbox" [checked]="allStatus" (change)="allChange()">
+                <label for="allCheckBox" *ngIf="!allStatus; else elseBlockBox">Select all</label>
+                <ng-template #elseBlockBox><label for="allCheckBox">Deselect all</label></ng-template>
+            </li>
             <li *ngFor="let i of ingredients">
-                <input [id]="i.name" type="checkbox" [checked]="i.isChecked" (change)="i.isChecked = !i.isChecked">
+                <input [id]="i.name" type="checkbox" [checked]="i.isChecked" (change)="eachChange(i)">
                 <label for={{i.name}}>{{i.measurement}} {{i.name}}</label>
             </li>
         </ul>
-        <span class="serving">
+        <div class="serving">
             <label for="size">Serving size:</label>
-            <input id="size" type="text" [(ngModel)]="serving" #servingField="ngModel" required/>
-        </span>
-        <span id="error" *ngIf="!servingField.valid && clicked">Serving size is required before adding.</span>
-        <input type="submit" value="Add to shopping list" (click)="getItemList()">
+            <input id="size" type="text" [(ngModel)]="serving" #servingField="ngModel"  
+                pattern="^[0-9]+$|[0-9]+\.[0-9]+" required>
+            <span class="error" *ngIf="!servingField.valid && clickedPost">Serving size is required before adding.</span>
+        </div>
+        <span *ngIf="!servingField.valid; then thenBlock; else elseBlock"></span>
+        <ng-template #thenBlock>
+            <input type="submit" value="Add to shopping list" (click)="postItemList()">
+        </ng-template>
+        <ng-template #elseBlock>
+            <input type="submit" value="Add to shopping list" (click)="postItemList()" 
+                [routerLink]="['/cart']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        </ng-template>
     </section>
+
     <section class="instructions">
         <h3>Instructions</h3>
         <ol>
