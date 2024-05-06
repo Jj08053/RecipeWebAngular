@@ -11,103 +11,98 @@ app.use(bodyParser.json());
 
 const cors = require("cors");
 let corsOptions = {
-    origin : ['http://localhost:4200'],
- }
+    origin: ['http://localhost:4200'],
+}
 app.use(cors(corsOptions));
 
 import { Recipe } from "./Recipe";
 
 let recipesList: Recipe[] = [];
-let itemInfo: [][]
+let itemList: JSON[] = [];
+// FYI itemList = [
+//     {
+//        "name": itemName,
+//         "qty": itemQty,
+//         "unit": itemUnit
+//     },
+//     {
+//         "name": itemName,
+//          "qty": itemQty,
+//          "unit": itemUnit
+//     }
+// ];
 
-fs.readFile(filePath, (err, data) =>{ //data = content of the file; has content if there is no error
-    if (err){
+fs.readFile(filePath, (err, data) => { //data = content of the file; has content if there is no error
+    if (err) {
         console.error("Unable to read file: " + filePath + "\n" + err);
     }
-    else{
+    else {
         recipesList = JSON.parse(data);
     }
 });
 
 //NEED TO COMPLETE
-app.get("/", (req, resp)=>{
+app.get("/", (req, resp) => {
 
 
-    
-    return resp.json({"home": "home"});
+
+    return resp.json({ "home": "home" });
 })
 
-app.get("/recipes", (req, resp)=>{
+app.get("/recipes", (req, resp) => {
     resp.status(200);
     return resp.json(recipesList);
 })
 
-app.get("/recipe/:name", (req, resp)=>{
+app.get("/recipe/:name", (req, resp) => {
     const recipe: Recipe | undefined = recipesList.find(recipe => recipe.name == req.params.name);
-    if (recipe){
+    if (recipe) {
         resp.status(200);
-        return(resp.json(recipe));
+        return (resp.json(recipe));
     }
     resp.status(404);
-    return resp.json({error: `recipe with name: ${req.params.name} not found`});
+    return resp.json({ error: `recipe with name: ${req.params.name} not found` });
 })
 
 //NEED TO COMPLETE
-// FYI itemInfo = {
-//     itemNameList: this.itemName,
-//     itemQtyList: this.itemQty,
-//     itemUnitList: this.itemUnit,
-//   };
-app.get("/cart", (req, resp)=>{
-    
+// FYI itemList = [
+//     {
+//        "name": itemName,
+//         "qty": itemQty,
+//         "unit": itemUnit
+//     },
+//     {
+//         "name": itemName,
+//          "qty": itemQty,
+//          "unit": itemUnit
+//     }
+// ];
+app.get("/cart", (req, resp) => {
 
 
-    return resp.json(itemInfo);
+
+    return resp.json(itemList);
 })
 
-app.post("/", (req, resp) => {
-    itemInfo = req.body;
-
-    // if (recipesList.find(recipe => recipe.name == newrecipe.name)){
-    //     resp.status(404);
-    //     return resp.json({error: `recipe with name: ${newrecipe.name} already existed`});
-    // }
-    // let regex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
-    // if (!regex.test(newrecipe.phoneNumber) || recipesList.find(recipe => recipe.phoneNumber == newrecipe.phoneNumber)){
-    //     resp.status(404);
-    //     return resp.json({error: `Wrong phone format or duplicate phoneNumber: ${newrecipe.phoneNumber}`});
-    // }
-    // if (!newrecipe.id || !newrecipe.firstName || !newrecipe.lastName || !newrecipe.phoneNumber)
-    //     return resp.status(404).send("Missing id, firstName, lastName or phoneNumber");
-    // recipesList.push((req.body));
+app.post("/cart", (req, resp) => {
+    itemList.push(req.body);
     resp.status(200);
-    return resp.json(itemInfo);
+    return resp.json(itemList);
 });
 
-// app.put('/', (req,resp)=>{
-//     for (let i = 0; i < recipesList.length;i++){
-//         if (recipesList[i].name === req.body.id){
-//             recipesList[i].image = req.body.image;
-//             recipesList[i].serving = req.body.serving;
-//             recipesList[i].ingredients = req.body.ingredients;
-//             recipesList[i].instructions = req.body.instructions;
-//             resp.status(200); 
-//             return(resp.json(req.body));
-//         }
-//     }
-//     return resp.json({err: `Can't replace recipe with name: ${req.body.name}: name not found`}); 
-// });
+//May need this to update the shoppingList items
+app.put('/cart', (req, resp) => {
 
-// app.delete('/', (req,resp)=>{
-//     for (let i = 0; i < recipesList.length;i++){
-//         if (recipesList[i].id === req.body.id){
-//             recipesList.splice(i, 1);
-//             resp.status(200); 
-//             return(resp.json(req.body.id));
-//         }
-//     }
-//     return resp.json({err: `Can't delete recipe with id: ${req.body.id}: id not found`}); 
-// });
+
+
+});
+
+//May need this to delete the shoppingList items
+app.delete('/cart', (req, resp) => {
+    
+
+    
+});
 
 app.listen(port, () => {
     console.log(`Running on port ${port}`);
