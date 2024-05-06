@@ -21,7 +21,7 @@
             <label for="size">Serving size:</label>
             <input id="size" type="text" [(ngModel)]="serving" #servingField="ngModel"  
                 pattern="^[0-9]+$|[0-9]+\.[0-9]+" required>
-            <span class="error" *ngIf="!servingField.valid && clickedPost">Serving size is required before adding.</span>
+            <span class="error" *ngIf="!servingField.valid && clickedPost">Enter serving size (integer or decimal)</span>
         </div>
         <span *ngIf="!servingField.valid; then thenBlock; else elseBlock"></span>
         <ng-template #thenBlock>
