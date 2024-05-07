@@ -15,10 +15,11 @@ let corsOptions = {
 }
 app.use(cors(corsOptions));
 
+import { CartItem } from "./CartItem";
 import { Recipe } from "./Recipe";
 
 let recipesList: Recipe[] = [];
-let itemList: JSON[] = [];
+let itemList: CartItem[] = [];
 // FYI itemList = [
 //     {
 //        "name": itemName,
@@ -32,7 +33,7 @@ let itemList: JSON[] = [];
 //     }
 // ];
 
-fs.readFile(filePath, (err, data) => { //data = content of the file; has content if there is no error
+fs.readFile(filePath, (err: string, data: string) => { //data = content of the file; has content if there is no error
     if (err) {
         console.error("Unable to read file: " + filePath + "\n" + err);
     }
@@ -85,7 +86,10 @@ app.get("/cart", (req, resp) => {
 })
 
 app.post("/cart", (req, resp) => {
-    itemList.push(req.body);
+    itemList = itemList.concat(req.body.itemInfo);
+    // for (let each of req.body.itemList){
+    //     itemList.push(each);
+    // }
     resp.status(200);
     return resp.json(itemList);
 });
