@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Recipe } from '../models/Recipe';
 import { Ingredient } from '../models/Ingredient';
+import { CartItem } from '../models/CartItem';
 
 @Component({
   selector: 'app-recipe',
@@ -49,26 +50,19 @@ export class RecipeComponent {
   postItemList() {
     this.clickedPost = true;
 
-    let pattern =/^[0-9]+$|[0-9]+\.[0-9]+/;
-    if (!this.serving || !pattern.test(this.serving.toString())) {
+    let regex = /^[0-9]+$|^[0-9]+\.[0-9]+$/;
+    if (!this.serving || !regex.test(this.serving.toString())) {
       return;
     }
 
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        "Accept": 'application/json'
-      })
-    };
+    let tempList: CartItem[] = [];
+    regex = /^[0-9]+$|^[0-9]+\/[0-9]+$/;
 
     for (let i of this.ingredients) {
       if (i.isChecked === true) {
         let words = i.measurement.split(" ");
         let amount: number = 0;
         let unit: string = "";
-        let itemJSONstring = "";
-        let itemList: JSON[] = [];
-        let regex = /[0-9]+|[0-9]\/[0-9]/;
         for (let word of words) {
           if (regex.test(word)) {
             if (word.indexOf("/") > 0) {
@@ -92,49 +86,56 @@ export class RecipeComponent {
         if (idx > 0) {
           name = i.name.slice(0, idx);
         }
-        else{
+        else {
           name = i.name;
         }
-        itemJSONstring = `{"name": "${name}", "qty": ${amount}, "unit": "${unit}"}`;
-        itemList = (JSON.parse(itemJSONstring));
-
-        const data = {
-          itemList: itemList
-        };
-
-        this.httpClient.post("http://localhost:3000/cart", data, options)
-          .subscribe({
-            // next: (body) => {
-            //   console.log("Post successful");
-            //   console.log(body);
-            // },
-            // error: (err) => {
-            //   console.error("Error occured: " + JSON.stringify(err));
-            // }
-          });
+        let itemJSONstring = `{"name": "${name}", "qty": ${amount}, "unit": "${unit}"}`;
+        tempList.push(JSON.parse(itemJSONstring));
       }
     }
+
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        "Accept": 'application/json'
+      })
+    };
+
+    const data = {
+      itemInfo: tempList
+    };
+
+    this.httpClient.post("http://localhost:3000/cart", data, options)
+      .subscribe({
+        // next: (body) => {
+        //   console.log("Post successful");
+        //   console.log(body);
+        // },
+        // error: (err) => {
+        //   console.error("Error occured: " + JSON.stringify(err));
+        // }
+      });
   }
 
-  allChange(){
+  allChange() {
     this.allStatus = !this.allStatus;
-    for (let i of this.ingredients){
+    for (let i of this.ingredients) {
       i.isChecked = this.allStatus;
     }
   }
 
-  eachChange(ingredient: Ingredient){
+  eachChange(ingredient: Ingredient) {
     ingredient.isChecked = !ingredient.isChecked;
     if (this.allStatus = true)
       this.allStatus = false;
 
     let counter = 0;
-    for (let i of this.ingredients){
-      if (true == i.isChecked){
+    for (let i of this.ingredients) {
+      if (true == i.isChecked) {
         counter++;
       }
     }
-    if (counter === this.ingredients.length){
+    if (counter === this.ingredients.length) {
       this.allStatus = true;
     }
   }

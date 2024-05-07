@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Recipe } from '../models/Recipe';
+import { CartItem } from '../models/CartItem';
 
 @Component({
   selector: 'app-cart',
@@ -8,10 +8,9 @@ import { Recipe } from '../models/Recipe';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent {
-  itemInfoList
+  itemInfoList:CartItem[]= []
 
   constructor(public httpClient: HttpClient) {
-
 
     const options = {
       headers: new HttpHeaders({
@@ -20,12 +19,10 @@ export class CartComponent {
       })
     };
 
-    //may need to change next function
-    this.httpClient.get("http://localhost:3000/cart", options)
+    this.httpClient.get<CartItem[]>("http://localhost:3000/cart", options)
       .subscribe({
         next: (data) => {
           this.itemInfoList = data;
-          console.log(this.itemInfoList);
         },
         error: (err) => {
           console.error("Error occurred: " + err);
