@@ -11,13 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
     "body": "^5.1.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "dotenpnv": "^16.4.5",
     "express": "^4.19.2",
     "parser": "^0.1.4"
   }

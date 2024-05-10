@@ -1,1 +1,36 @@
-<p>home works!</p>
+<div class="home">
+
+    <div class="section">
+        <div class="pictureholder">
+
+            <div class="message">
+                Discover Recipes, Create Shopping Lists: Your Culinary Companion!
+            </div>
+
+            <div class="welcome">
+                Welcome!
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="review">
+
+            <div class="panel" *ngFor="let panel of panels" [ngClass]="{ 'active': panel.visible }"
+                (click)="showPanel(panel)">
+
+                <div class="foodpic" 
+                [style.background-image]="'url(assets/' + panel.image + ')'">  
+                </div>
+
+                <div class="foodtitle" >
+                <h3 (click)="goToRecipe(panel.id)">Check out {{panel.title}}'s recipe</h3>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+</div>

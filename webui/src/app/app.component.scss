@@ -20,7 +20,12 @@
    padding: 0px 20px;
    font-weight: 600;
    font-size: 20px;
+   cursor: pointer;
+   &.active{
+      border-bottom: 5px solid lightcoral;
+   }
 }
+
 
 #topbar ul :last-child{
    padding-right: 0px;
@@ -29,3 +34,4 @@
 #topbar ul :hover {
    color: lightslategray;
 }
+

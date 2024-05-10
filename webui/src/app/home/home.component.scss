@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+.home {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.section {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.pictureholder {
+    width: 100%;
+    height: 100%;
+    background-image: url(homepage2.png);
+    background-size: cover;
+}
+
+.welcome {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font: 'Muli', sans-serif;
+    font-size: 80px;
+    padding: 10px;
+}
+
+.message {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: white;
+    font: 'Muli', sans-serif;
+    background-color: rgba(255, 255, 255, 0.5);
+    font-size: 40px;
+    padding: 10px;
+}
+
+
+.review {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 1 20%;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    -webkit-transition: all 700ms ease-in;
+}
+
+.panel.active {
+    flex: 0 1 70%;
+}
+
+.foodpic {
+    height: 300px;
+}
+
+.panel h3 {
+    opacity: 0;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+    color: white;
+    font: 'Muli', sans-serif;
+    background-color: darkgray;
+}
