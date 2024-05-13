@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Recipe } from '../models/Recipe';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -7,24 +9,58 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  names: string[] = [];
+  recipesList: Recipe[] = [];
+  panels: { name: string, title: string, image: string, visible: boolean }[] = [];
 
-  panels = [
-    { id: 1, title: 'Cake', image: 'cake.jpg', visible: true },
-    { id: 2, title: 'Chili', image: 'chili.jpg', visible: false },
-    { id: 3, title: 'Penne', image: 'penne.jpg', visible: false }
-  ];
+  constructor(
+    public httpClient: HttpClient,
+    public router:Router
+  ) 
+  {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        "Accept": 'application/json'
+      })
+    };
+
+    this.httpClient.get<Recipe[]>("http://localhost:3000/recipes", options)
+      .subscribe({
+        next: (data) => {
+          this.recipesList = data;  
+          data.forEach((recipe,index) => {
+            const isVisible = index === 0; // Set first panel to visible
+            this.panels.push({
+              name: recipe.name,
+              title: recipe.name,
+              image: recipe.image,
+              visible: isVisible
+            });
+          });
+        },
+        error: (err) => {
+          console.error("Error occurred: " + err);
+        }
+      });
+  }
 
   showPanel(panel) {
     this.panels.forEach(p => p.visible = false);
     panel.visible = true;
   }
 
-  constructor(public router:Router) {
-
-  }
-  
-  goToRecipe(id:number) {
-    this.router.navigateByUrl('/recipe/'+id);
+  goToRecipe(id:string) {
+    const encodedId = id.replace(/\(/g, '%28').replace(/\)/g, '%29');
+    this.router.navigateByUrl('/recipe/'+ encodedId);
   }
 
-}
+  scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  }
+

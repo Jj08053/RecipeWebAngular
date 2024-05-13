@@ -1,0 +1,34 @@
+.contact-us {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .contact-us form {
+    margin-top: 20px;
+  }
+  
+  .contact-us form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .contact-us form input,
+  .contact-us form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .contact-us form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .contact-us form button:hover {
+    background-color: #0056b3;
+  }

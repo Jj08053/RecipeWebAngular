@@ -1,7 +1,7 @@
 <div class="home">
 
     <div class="section">
-        <div class="pictureholder">
+        <div class="pictureholder" [style.background-image]="'url(assets/homepage2.png)'"> >
 
             <div class="message">
                 Discover Recipes, Create Shopping Lists: Your Culinary Companion!
@@ -20,17 +20,32 @@
             <div class="panel" *ngFor="let panel of panels" [ngClass]="{ 'active': panel.visible }"
                 (click)="showPanel(panel)">
 
-                <div class="foodpic" 
-                [style.background-image]="'url(assets/' + panel.image + ')'">  
+                <div class="foodpic" [style.background-image]="'url(assets/' + panel.image + ')'">
                 </div>
 
-                <div class="foodtitle" >
-                <h3 (click)="goToRecipe(panel.id)">Check out {{panel.title}}'s recipe</h3>
+                <div class="foodtitle">
+                    <h3 (click)="goToRecipe(panel.name)">Check out {{panel.title}}'s recipe</h3>
                 </div>
 
             </div>
-            
+
         </div>
     </div>
 
+    <div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-section">
+          <a href="https://www.instagram.com/uofstthomasmn/?hl=en" target="_blank">
+            <img src="assets/instagram-icon.png" alt="Instagram">
+          </a>
+        </div>
+        <div class="footer-section">
+          <button routerLink="/contact">Contact Us</button>
+        </div>
+        <div class="footer-section">
+          <button (click)="scrollToTop()">Back to Top</button>
+        </div>
+      </footer>
 </div>
