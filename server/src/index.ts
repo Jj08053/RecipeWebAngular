@@ -42,13 +42,9 @@ fs.readFile(filePath, (err: string, data: string) => { //data = content of the f
     }
 });
 
-//NEED TO COMPLETE
-app.get("/", (req, resp) => {
-
-
-
-    return resp.json({ "home": "home" });
-})
+// app.get("/", (req, resp) => {
+//     return resp.json({ "home": "home" });
+// })
 
 app.get("/recipes", (req, resp) => {
     resp.status(200);

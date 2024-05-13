@@ -1,0 +1,12 @@
+<div class="top">
+    <h2>Your Shopping List</h2>
+    <p></p>
+    <ul>
+        <li [routerLink]="['/cart/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Category</li>
+        <li [routerLink]="['/cart/cartRecipe']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recipe</li>
+    </ul>
+</div>
+<div class="listing">
+    <router-outlet (activate)="onActive($event)"></router-outlet>
+
+</div>
