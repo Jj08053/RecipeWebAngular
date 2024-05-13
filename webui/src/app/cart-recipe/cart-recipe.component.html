@@ -1,6 +1,5 @@
 <div class="top">
     <h2>Your Shopping List</h2>
-    <p>STILL NEEDING TO CREATE STATEMENTS TO SECTION OFF BASED ON WHICH RECIPE</p>
     <ul>
         <li [routerLink]="['/cart/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Category</li>
         <li [routerLink]="['/cart/cartRecipe']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recipe</li>
@@ -18,13 +17,46 @@
         <label class="cbox"></label>
     </div>
 
+    <p>Copycat Berry Chantilly Cake</p>
     <div class="product">
-        <div *ngFor="let item of itemInfoList">
+        <div *ngFor="let item of itemInfoList | recipeFilter:'Copycat-Berry-Chantilly-Cake'">
             <div class="image">
                 <img src="assets/{{item.name}}.jpg"/>
             </div>
 
-            <div class="recipe">{{item.recipe}}</div>
+            <div class="name">{{item.name}}</div>
+            
+            <div class="qty">{{item.qty}} {{item.unit}} </div>
+
+            <div class="cbox">
+                <input type="checkbox">
+            </div>
+        </div>
+    </div>
+    <div class="divide"></div>
+    <p>Penne with Asparagus and Cherry Tomatoes (Spring)</p>
+    <div class="product">
+        <div *ngFor="let item of itemInfoList | recipeFilter:'Penne-with-Asparagus-and-Cherry-Tomatoes-(Spring)'">
+            <div class="image">
+                <img src="assets/{{item.name}}.jpg"/>
+            </div>
+
+            <div class="name">{{item.name}}</div>
+            
+            <div class="qty">{{item.qty}} {{item.unit}} </div>
+
+            <div class="cbox">
+                <input type="checkbox">
+            </div>
+        </div>
+    </div>
+    <div class="divide"></div>
+    <P>Simple Perfect Chili</P>
+    <div class="product">
+        <div *ngFor="let item of itemInfoList | recipeFilter:'Simple-Perfect-Chili'">
+            <div class="image">
+                <img src="assets/{{item.name}}.jpg"/>
+            </div>
 
             <div class="name">{{item.name}}</div>
             
