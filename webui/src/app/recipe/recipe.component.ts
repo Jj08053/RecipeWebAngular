@@ -18,6 +18,7 @@ export class RecipeComponent {
   clickedPost: boolean = false;
   error: boolean = true;
   allStatus: boolean = false;
+  recipeName: string
 
   constructor(public route: ActivatedRoute, public httpClient: HttpClient) {
     //this.contactId = route.snapshot.paramMap.get("id");
@@ -40,6 +41,7 @@ export class RecipeComponent {
         next: (data) => {
           this.recipe = data;
           this.ingredients = this.recipe.ingredients;
+          this.recipeName = this.recipe.name;
         },
         error: (err) => {
           console.error("Error occurred: " + err);
@@ -89,7 +91,7 @@ export class RecipeComponent {
         else {
           name = i.name;
         }
-        let itemJSONstring = `{"name": "${name}", "qty": ${amount}, "unit": "${unit}"}`;
+        let itemJSONstring = `{"name": "${name}", "qty": ${amount}, "unit": "${unit}", "recipeName": "${this.recipeName}"}`;
         tempList.push(JSON.parse(itemJSONstring));
       }
     }
