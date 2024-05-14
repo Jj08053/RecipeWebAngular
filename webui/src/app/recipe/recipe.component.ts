@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Recipe } from '../models/Recipe';
 import { Ingredient } from '../models/Ingredient';
 import { CartItem } from '../models/CartItem';
@@ -14,14 +14,15 @@ export class RecipeComponent {
   url: string
   recipe: Recipe
   ingredients: Ingredient[]
+  minYield: number
+  maxYield: number
+  optionList: { value: number; label: string; }[]
   serving: number
   clickedPost: boolean = false;
-  error: boolean = true;
   allStatus: boolean = false;
   recipeName: string
 
-  constructor(public route: ActivatedRoute, public httpClient: HttpClient) {
-    //this.contactId = route.snapshot.paramMap.get("id");
+  constructor(public route: ActivatedRoute, public httpClient: HttpClient, public router: Router) {
 
     route.paramMap.subscribe({
       next: (params) => {
@@ -42,6 +43,24 @@ export class RecipeComponent {
           this.recipe = data;
           this.ingredients = this.recipe.ingredients;
           this.recipeName = this.recipe.name;
+          if (this.recipe.serving.includes("to")){
+            let yields = this.recipe.serving.split(" to ");
+            this.minYield = +yields[0];
+            this.maxYield = +yields[1];
+            this.optionList =[{value:0.5 , label: `Half recipe (serve ${this.minYield/2} to ${this.maxYield/2} individuals)`}, 
+              {value:1, label: `Full recipe (serve ${this.minYield} to ${this.maxYield} individuals)`},
+              {value:2, label: `Double recipe (serve ${this.minYield*2} to ${this.maxYield*2} individuals)`}
+          ];
+          }
+          else{
+            this.minYield = +this.recipe.serving;
+            this.maxYield = +this.recipe.serving;
+            this.optionList =[{value:0.5, label: `Half recipe (serve ${this.minYield/2} individuals)`}, 
+              {value:1, label: `Full recipe (serve ${this.minYield} individuals)`},
+              {value:2, label: `Double recipe (serve ${this.minYield*2} individuals)`}
+          ];
+          }
+          
         },
         error: (err) => {
           console.error("Error occurred: " + err);
@@ -52,13 +71,12 @@ export class RecipeComponent {
   postItemList() {
     this.clickedPost = true;
 
-    let regex = /^[0-9]+$|^[0-9]+\.[0-9]+$/;
-    if (!this.serving || !regex.test(this.serving.toString())) {
+    if (!this.serving) {
       return;
     }
 
     let tempList: CartItem[] = [];
-    regex = /^[0-9]+$|^[0-9]+\/[0-9]+$/;
+    let regex = /^[0-9]+$|^[0-9]+\/[0-9]+$/;
 
     for (let i of this.ingredients) {
       if (i.isChecked === true) {
@@ -117,6 +135,8 @@ export class RecipeComponent {
         //   console.error("Error occured: " + JSON.stringify(err));
         // }
       });
+
+      this.router.navigate(['cart']);
   }
 
   allChange() {

@@ -1,8 +1,10 @@
 <div class="top">
     <h2>Your Shopping List</h2>
     <ul>
-        <li [routerLink]="['/cart/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Category</li>
-        <li [routerLink]="['/cart/cartRecipe']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Recipe</li>
+        <li [routerLink]="['/cart/category']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Category</li>
+        <li [routerLink]="['/cart/cartRecipe']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            Recipe</li>
     </ul>
 </div>
 <div class="listing">
@@ -17,87 +19,99 @@
         <label class="cbox"></label>
     </div>
 
-    <p>Fruits & Veggies</p>
-    <div class="product">
-        <div *ngFor="let item of itemInfoList | categoryFilter:'fruits & veggies'">
-            <div class="image">
-                <img src="assets/{{item.name}}.jpg"/>
-            </div>
-            <div class="name">{{item.name}}</div>           
-            <div class="qty">{{item.qty}} {{item.unit}} </div>
-            <div class="cbox">
-                <input type="checkbox">
-            </div>
-        </div>
-    </div>
-    <div class="divide"></div>
-    <p>Protein</p>
-    <div class="product">
-        <div *ngFor="let item of itemInfoList | categoryFilter:'protein'">
-            <div class="image">
-                <img src="assets/{{item.name}}.jpg"/>
-            </div>
-            <div class="name">{{item.name}}</div>
-            <div class="qty">{{item.qty}} {{item.unit}} </div>
-            <div class="cbox">
-                <input type="checkbox">
+    <span *ngIf="isListed('fruits & veggies')">
+        <p>Fruits & Veggies</p>
+        <div class="product">
+            <div *ngFor="let item of itemInfoList | categoryFilter:'fruits & veggies'">
+                <div class="image">
+                    <img src="assets/{{item.name}}.jpg" />
+                </div>
+                <div class="name">{{item.name}}</div>
+                <div class="qty">{{item.qty}} {{item.unit}} </div>
+                <div class="cbox">
+                    <input type="checkbox">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="divide"></div>
-    <P>Milk Products</P>
-    <div class="product">
-        <div *ngFor="let item of itemInfoList | categoryFilter:'milk products'">
-            <div class="image">
-                <img src="assets/{{item.name}}.jpg"/>
-            </div>
-            <div class="name">{{item.name}}</div>
-            <div class="qty">{{item.qty}} {{item.unit}} </div>
-            <div class="cbox">
-                <input type="checkbox">
-            </div>
-        </div>
-    </div>
-    <div class="divide"></div>
-    <P>Baking</P>
-    <div class="product">
-        <div *ngFor="let item of itemInfoList | categoryFilter:'baking'">
-            <div class="image">
-                <img src="assets/{{item.name}}.jpg"/>
-            </div>
-            <div class="name">{{item.name}}</div>
-            <div class="qty">{{item.qty}} {{item.unit}} </div>
-            <div class="cbox">
-                <input type="checkbox">
+        <div class="divide"></div>
+    </span>
+    <span *ngIf="isListed('protein')">
+        <p>Protein</p>
+        <div class="product">
+            <div *ngFor="let item of itemInfoList | categoryFilter:'protein'">
+                <div class="image">
+                    <img src="assets/{{item.name}}.jpg" />
+                </div>
+                <div class="name">{{item.name}}</div>
+                <div class="qty">{{item.qty}} {{item.unit}} </div>
+                <div class="cbox">
+                    <input type="checkbox">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="divide"></div>
-    <P>Spices</P>
-    <div class="product">
-        <div *ngFor="let item of itemInfoList | categoryFilter:'spices'">
-            <div class="image">
-                <img src="assets/{{item.name}}.jpg"/>
-            </div>
-            <div class="name">{{item.name}}</div>
-            <div class="qty">{{item.qty}} {{item.unit}} </div>
-            <div class="cbox">
-                <input type="checkbox">
-            </div>
-        </div>
-    </div>
-    <div class="divide"></div>
-    <P>Other</P>
-    <div class="product">
-        <div *ngFor="let item of itemInfoList | categoryFilter:'other'">
-            <div class="image">
-                <img src="assets/{{item.name}}.jpg"/>
-            </div>
-            <div class="name">{{item.name}}</div>
-            <div class="qty">{{item.qty}} {{item.unit}} </div>
-            <div class="cbox">
-                <input type="checkbox">
+        <div class="divide"></div>
+    </span>
+    <span *ngIf="isListed('milk products')">
+        <p>Milk Products</p>
+        <div class="product">
+            <div *ngFor="let item of itemInfoList | categoryFilter:'milk products'">
+                <div class="image">
+                    <img src="assets/{{item.name}}.jpg" />
+                </div>
+                <div class="name">{{item.name}}</div>
+                <div class="qty">{{item.qty}} {{item.unit}} </div>
+                <div class="cbox">
+                    <input type="checkbox">
+                </div>
             </div>
         </div>
-    </div>
+        <div class="divide"></div>
+    </span>
+    <span *ngIf="isListed('baking')">
+        <p>Baking</p>
+        <div class="product">
+            <div *ngFor="let item of itemInfoList | categoryFilter:'baking'">
+                <div class="image">
+                    <img src="assets/{{item.name}}.jpg" />
+                </div>
+                <div class="name">{{item.name}}</div>
+                <div class="qty">{{item.qty}} {{item.unit}} </div>
+                <div class="cbox">
+                    <input type="checkbox">
+                </div>
+            </div>
+        </div>
+        <div class="divide"></div>
+    </span>
+    <span *ngIf="isListed('spices')">
+        <p>Spices</p>
+        <div class="product">
+            <div *ngFor="let item of itemInfoList | categoryFilter:'spices'">
+                <div class="image">
+                    <img src="assets/{{item.name}}.jpg" />
+                </div>
+                <div class="name">{{item.name}}</div>
+                <div class="qty">{{item.qty}} {{item.unit}} </div>
+                <div class="cbox">
+                    <input type="checkbox">
+                </div>
+            </div>
+        </div>
+        <div class="divide"></div>
+    </span>
+    <span *ngIf="isListed('other')">
+        <p>Other</p>
+        <div class="product">
+            <div *ngFor="let item of itemInfoList | categoryFilter:'other'">
+                <div class="image">
+                    <img src="assets/{{item.name}}.jpg" />
+                </div>
+                <div class="name">{{item.name}}</div>
+                <div class="qty">{{item.qty}} {{item.unit}} </div>
+                <div class="cbox">
+                    <input type="checkbox">
+                </div>
+            </div>
+        </div>
+    </span>
 </div>

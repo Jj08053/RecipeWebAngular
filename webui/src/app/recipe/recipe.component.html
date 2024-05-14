@@ -18,19 +18,15 @@
             </li>
         </ul>
         <div class="serving">
-            <label for="size">Serving size:</label>
-            <input id="size" type="text" [(ngModel)]="serving" #servingField="ngModel"  
-                pattern="^[0-9]+$|[0-9]+\.[0-9]+" required>
-            <span class="error" *ngIf="!servingField.valid && clickedPost">Enter serving size (integer or decimal)</span>
+            <label>Preferred serving size:
+                <select name="servingSelected" [(ngModel)]="serving">
+                    <option selected></option>
+                    <option *ngFor="let option of optionList" [value]="option.value">{{option.label}}</option>
+                </select>
+            </label>
+            <span class="error" *ngIf="!serving && clickedPost">Choose preferred serving size</span>
         </div>
-        <span *ngIf="!servingField.valid; then thenBlock; else elseBlock"></span>
-        <ng-template #thenBlock>
-            <input type="submit" value="Add to shopping list" (click)="postItemList()">
-        </ng-template>
-        <ng-template #elseBlock>
-            <input type="submit" value="Add to shopping list" (click)="postItemList()" 
-                [routerLink]="['/cart']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        </ng-template>
+        <input type="submit" value="Add to shopping list" (click)="postItemList()">
     </section>
 
     <section class="instructions">
@@ -43,4 +39,3 @@
         </ol>
     </section>
 </section>
-<!-- <hr /> -->

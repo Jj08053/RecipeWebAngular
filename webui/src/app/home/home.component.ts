@@ -46,6 +46,9 @@ export class HomeComponent {
   }
 
   showPanel(panel) {
+    // if (panel.visible === true){
+    //   this.goToRecipe(panel.title);
+    // }
     this.panels.forEach(p => p.visible = false);
     panel.visible = true;
   }

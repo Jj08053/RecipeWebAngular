@@ -37,4 +37,12 @@ export class CartRecipeComponent {
   onActive(event: Event) {
     window.scrollTo(0, 0);
   }
+
+  isListed(str: string){
+    for (let item of this.itemInfoList){
+      if (item.recipeName.includes(str))
+        return true; 
+    }
+    return false;
+  }
 }

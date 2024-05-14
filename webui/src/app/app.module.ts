@@ -13,6 +13,7 @@ import { CategoryComponent } from './category/category.component';
 import { CartRecipeComponent } from './cart-recipe/cart-recipe.component';
 import { recipeFilterPipe } from './cart-recipe/recipeFilter';
 import { categoryFilterPipe } from './category/categoryFilter';
+import { ContactComponent } from './home/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { categoryFilterPipe } from './category/categoryFilter';
     RecipeComponent,
     HomeComponent,
     CartComponent,
+    ContactComponent,
     RecipesComponent,
     CategoryComponent,
     CartRecipeComponent,
