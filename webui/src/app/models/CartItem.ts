@@ -3,5 +3,5 @@ export interface CartItem {
         qty: number,
         unit: string,
         recipeName: string,
-        category: string;
+        category: string,
 }
