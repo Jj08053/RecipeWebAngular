@@ -12,3 +12,17 @@
 <main>
   <router-outlet (activate)="onActive($event)"></router-outlet>
 </main>
+
+<footer class="footer">
+  <div class="footer-section">
+    <a href="https://www.instagram.com/uofstthomasmn/?hl=en" target="_blank">
+      <img src="assets/instagram-icon.png" alt="Instagram">
+    </a>
+  </div>
+  <div class="footer-section">
+    <button routerLink="/contact">Contact Us</button>
+  </div>
+  <div class="footer-section">
+    <button (click)="scrollToTop()">Back to Top</button>
+  </div>
+</footer>

@@ -35,3 +35,47 @@
    color: lightslategray;
 }
 
+main {
+   padding-bottom: 2em;
+   min-height: 80vh;
+}
+
+//footer
+.footer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: darkgray;
+    display: flex;
+    position: static;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+    height: 30px;
+}
+
+.footer-section {
+    display: flex;
+    align-items: center;
+    margin: 0 10px; 
+}
+
+.footer-section img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.footer-section button {
+    background-color:darkgrey;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer-section button:hover {
+    border-bottom: 5px solid lightcoral;
+}

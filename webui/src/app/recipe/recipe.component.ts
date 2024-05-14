@@ -100,6 +100,8 @@ export class RecipeComponent {
             unit += word;
           }
         }
+        if (unit.endsWith('s')){ unit = unit.slice(0,-1);}
+        if (unit){ unit = unit.concat("(s)");}
         amount *= this.serving;
         let name: string
         let idx = i.name.indexOf(",");

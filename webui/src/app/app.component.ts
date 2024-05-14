@@ -11,4 +11,11 @@ export class AppComponent {
   onActive(event: Event) {
     window.scrollTo(0, 0);
   }
+
+  scrollToTop(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 }
