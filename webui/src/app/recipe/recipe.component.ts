@@ -91,7 +91,7 @@ export class RecipeComponent {
         else {
           name = i.name;
         }
-        let itemJSONstring = `{"name": "${name}", "qty": ${amount}, "unit": "${unit}", "recipeName": "${this.recipeName}"}`;
+        let itemJSONstring = `{"name": "${name}", "qty": ${amount}, "unit": "${unit}", "recipeName": "${this.recipeName}", "category": "${i.category}"}`;
         tempList.push(JSON.parse(itemJSONstring));
       }
     }
