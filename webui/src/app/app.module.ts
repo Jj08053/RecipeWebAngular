@@ -12,6 +12,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { CategoryComponent } from './category/category.component';
 import { CartRecipeComponent } from './cart-recipe/cart-recipe.component';
 import { recipeFilterPipe } from './cart-recipe/recipeFilter';
+import { categoryFilterPipe } from './category/categoryFilter';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { recipeFilterPipe } from './cart-recipe/recipeFilter';
     RecipesComponent,
     CategoryComponent,
     CartRecipeComponent,
-    recipeFilterPipe
+    recipeFilterPipe,
+    categoryFilterPipe
   ],
   imports: [
     BrowserModule,
