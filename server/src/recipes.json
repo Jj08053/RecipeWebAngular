@@ -6,39 +6,48 @@
         "ingredients": [
             {
                 "name": "all-purpose flour",
-                "measurement": "2 cups"
+                "measurement": "2 cups",
+                "category": "baking"
             },
             {
                 "name": "granulated sugar",
-                "measurement": "1 1/4 cups"
+                "measurement": "1 1/4 cups",
+                "category": "spices"
             },
             {
                 "name": "baking powder",
-                "measurement": "1 teaspoon"
+                "measurement": "1 teaspoon",
+                "category": "baking"
             },
             {
                 "name": "kosher salt",
-                "measurement": "1 teaspoon"
+                "measurement": "1 teaspoon",
+                "category": "spices"
             },
             {
                 "name": "baking soda",
-                "measurement": "1/2 teaspoon"
+                "measurement": "1/2 teaspoon",
+                "category": "baking"
             },
             {
                 "name": "unsalted butter, at room temperature",
-                "measurement": "8 tablespoons"
+                "measurement": "8 tablespoons",
+                "category": "milk products"
             },
             {
                 "name": "whole milk",
-                "measurement": "1 cup"
+                "measurement": "1 cup",
+                "category": "milk products"
             },
             {
                 "name": "vanilla extract",
-                "measurement": "1 tablespoon"
+                "measurement": "1 tablespoon",
+                "category": "baking"
             },
             {
                 "name": "eggs, separated",
-                "measurement": "2 large"
+                "measurement": "2 large",
+                "category": "protein"
             }
         ],
         "instructions": [
@@ -55,47 +64,58 @@
         "ingredients": [
             {
                 "name": "penne pasta",
-                "measurement": "8 ounces"
+                "measurement": "8 ounces",
+                "category": "other"
             },
             {
                 "name": "olive oil",
-                "measurement": "3 tablespoons"
+                "measurement": "3 tablespoons",
+                "category": "other"
             },
             {
                 "name": "garlic, minced",
-                "measurement": "2 cloves"
+                "measurement": "2 cloves",
+                "category": "fruits & veggies"
             },
             {
                 "name": "thin asparagus, trimmed and cut into 1-inch pieces",
-                "measurement": "1 1/2 pounds"
+                "measurement": "1 1/2 pounds",
+                "category": "fruits & veggies"
             },
             {
                 "name": "salt",
-                "measurement": "(to taste)"
+                "measurement": "(to taste)",
+                "category": "spices"
             },
             {
                 "name": "ground black pepper",
-                "measurement": "(to taste)"
+                "measurement": "(to taste)",
+                "category": "spices"
             },
             {
                 "name": "cherry tomatoes",
-                "measurement": "2 cups"
+                "measurement": "2 cups",
+                "category": "fruits & veggies"
             },
             {
                 "name": "shelled fresh peas",
-                "measurement": "1 cup"
+                "measurement": "1 cup",
+                "category": "fruits & veggies"
             },
             {
                 "name": "low-sodium chicken stock",
-                "measurement": "1/2 cup"
+                "measurement": "1/2 cup",
+                "category": "protein"
             },
             {
                 "name": "grated Parmesan",
-                "measurement": "1 cup"
+                "measurement": "1 cup",
+                "category": "milk products"
             },
             {
                 "name": "fresh basil leaves, chopped",
-                "measurement": "2 tablespoons"
+                "measurement": "2 tablespoons",
+                "category": "fruits & veggies"
             }
         ],
         "instructions": [
@@ -111,47 +131,58 @@
         "ingredients": [
             {
                 "name": "ground beef",
-                "measurement": "2 pounds"
+                "measurement": "2 pounds",
+                "category": "protein"
             },
             {
                 "name": "garlic, chopped",
-                "measurement": "2 cloves"
+                "measurement": "2 cloves",
+                "category": "fruits & veggies"
             },
             {
                 "name": "tomato sauce",
-                "measurement": "8 ounces"
+                "measurement": "8 ounces",
+                "category": "fruits & veggies"
             },
             {
                 "name": "chili powder",
-                "measurement": "2 tablespoons"
+                "measurement": "2 tablespoons",
+                "category": "spices"
             },
             {
                 "name": "ground cumin",
-                "measurement": "1 teaspoon"
+                "measurement": "1 teaspoon",
+                "category": "spices"
             },
             {
                 "name": "ground oregano",
-                "measurement": "1 teaspoon"
+                "measurement": "1 teaspoon",
+                "category": "spices"
             },
             {
                 "name": "salt",
-                "measurement": "1 teaspoon"
+                "measurement": "1 teaspoon",
+                "category": "spices"
             },
             {
                 "name": "cayenne pepper",
-                "measurement": "1/4 teaspoon"
+                "measurement": "1/4 teaspoon",
+                "category": "spices"
             },
             {
                 "name": "masa harina",
-                "measurement": "1/4 cup"
+                "measurement": "1/4 cup",
+                "category": "baking"
             },
             {
                 "name": "kidney beans, drained and rinsed",
-                "measurement": "15 ounces"
+                "measurement": "15 ounces",
+                "category": "fruits & veggies"
             },
             {
                 "name": "pinto beans, drained and rinsed",
-                "measurement": "15 ounces"
+                "measurement": "15 ounces",
+                "category": "fruits & veggies"
             }
         ],
         "instructions": [
