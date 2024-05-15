@@ -2,13 +2,13 @@
     <h2>Contact Us</h2>
     <p>Feel free to reach out to us with any questions or inquiries.</p>
     <form #f="ngForm" (ngSubmit)="onFormSubmit(f)">
-      <label for="name">Name:</label>
+      <span>Name:</span>
       <input type="text" name="Name" [(ngModel)]="Name" required>
   
-      <label for="email">Email:</label>
+      <span>Email:</span>
       <input type="email" name="Email" name="Email" [(ngModel)]="Email" required>
   
-      <label for="message">Message:</label>
+      <span>Message:</span>
       <textarea id="message" name="Message" rows="4" [(ngModel)]="Message" required></textarea>
   
       <button type="submit">Submit</button>
