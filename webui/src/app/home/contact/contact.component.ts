@@ -12,22 +12,9 @@ export class ContactComponent {
   Email:string;
   Message:string;
 
-  constructor(private http: HttpClient) { }
-
   onFormSubmit(ngForm: NgForm) {
-    const data = {
-      name: this.Name,
-      email: this.Email,
-      message: this.Message
-    };
-
     ngForm.resetForm();
-    // Send data to backend . not finished yet
-    this.http.post('http://localhost:3000/contact', data)
-      .subscribe(response => {
-        console.log('Form submitted successfully:', response);
-      }, error => {
-        console.error('Error submitting form:', error);
-      });
+
+    console.log('feedback form received.');
   }
 }
