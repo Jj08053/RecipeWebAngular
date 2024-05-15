@@ -101,7 +101,7 @@ export class RecipeComponent {
           }
         }
         if (unit.endsWith('s')){ unit = unit.slice(0,-1);}
-        if (unit){ unit = unit.concat("(s)");}
+        if (unit && !unit.includes("desired")){ unit = unit.concat("(s)");}
         amount *= this.serving;
         let name: string
         let idx = i.name.indexOf(",");

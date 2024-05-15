@@ -20,18 +20,6 @@ import { Recipe } from "./Recipe";
 
 let recipesList: Recipe[] = [];
 let itemList: CartItem[] = [];
-// FYI itemList = [
-//     {
-//        "name": itemName,
-//         "qty": itemQty,
-//         "unit": itemUnit
-//     },
-//     {
-//         "name": itemName,
-//          "qty": itemQty,
-//          "unit": itemUnit
-//     }
-// ];
 
 fs.readFile(filePath, (err: string, data: string) => { //data = content of the file; has content if there is no error
     if (err) {
@@ -41,10 +29,6 @@ fs.readFile(filePath, (err: string, data: string) => { //data = content of the f
         recipesList = JSON.parse(data);
     }
 });
-
-// app.get("/", (req, resp) => {
-//     return resp.json({ "home": "home" });
-// })
 
 app.get("/recipes", (req, resp) => {
     resp.status(200);
@@ -61,47 +45,14 @@ app.get("/recipe/:name", (req, resp) => {
     return resp.json({ error: `recipe with name: ${req.params.name} not found` });
 })
 
-//NEED TO COMPLETE
-// FYI itemList = [
-//     {
-//        "name": itemName,
-//         "qty": itemQty,
-//         "unit": itemUnit
-//     },
-//     {
-//         "name": itemName,
-//          "qty": itemQty,
-//          "unit": itemUnit
-//     }
-// ];
 app.get("/cart", (req, resp) => {
-
-
-
     return resp.json(itemList);
-})
+});
 
 app.post("/cart", (req, resp) => {
     itemList = itemList.concat(req.body.itemInfo);
-    // for (let each of req.body.itemList){
-    //     itemList.push(each);
-    // }
     resp.status(200);
     return resp.json(itemList);
-});
-
-//May need this to update the shoppingList items
-app.put('/cart', (req, resp) => {
-
-
-
-});
-
-//May need this to delete the shoppingList items
-app.delete('/cart', (req, resp) => {
-    
-
-    
 });
 
 app.listen(port, () => {

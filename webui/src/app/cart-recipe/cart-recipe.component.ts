@@ -1,7 +1,6 @@
 import { Component} from '@angular/core';
 import { CartItem } from '../models/CartItem';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-cart-recipe',
@@ -26,7 +25,6 @@ export class CartRecipeComponent {
       .subscribe({
         next: (data) => {
           this.itemInfoList = data;
-          //this.recipe = this.itemInfoList.recipeName;
         },
         error: (err) => {
           console.error("Error occurred: " + err);
@@ -34,9 +32,6 @@ export class CartRecipeComponent {
       });
   }
 
-  onActive(event: Event) {
-    window.scrollTo(0, 0);
-  }
 
   isListed(str: string){
     for (let item of this.itemInfoList){

@@ -29,7 +29,4 @@ export class CartComponent {
         }
       });
   }
-  onActive(event: Event) {
-    window.scrollTo(0, 0);
-  }
 }

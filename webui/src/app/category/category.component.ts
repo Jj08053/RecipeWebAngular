@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CartItem } from '../models/CartItem';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-category',
@@ -30,9 +29,6 @@ export class CategoryComponent {
           console.error("Error occurred: " + err);
         }
       });
-  }
-  onActive(event: Event) {
-    window.scrollTo(0, 0);
   }
 
   isListed(str: string){
